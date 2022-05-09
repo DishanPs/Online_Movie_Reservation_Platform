@@ -5,11 +5,12 @@ import './Homestyle.css'
 import CarouselX from './Carousel'
 
 
+
 const Home = () => {
   return (
     <div>
         <Header/>
-
+     
         <CarouselX />
 
         <Footer/>
