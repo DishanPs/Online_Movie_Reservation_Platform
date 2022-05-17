@@ -8,19 +8,19 @@ import { BsPersonSquare } from "react-icons/bs";
 
 const Profile = ({profile}) => {
 
-    // const token =JSON.parse(sessionStorage.getItem("token"));
+    const token =JSON.parse(sessionStorage.getItem("token"));
 
-    //         const[profiledetails, setProfiledetails] = useState([]);
-    //         useEffect(() =>{
-    //         const email = token.email;
-    //             const details = {"email" :email}
-    //             axios.post("http://localhost:5000/customer/user",details)
-    //             .then((res) =>{
-    //                 console.log(res.data.data);
-    //                 setProfiledetails(res.data.data);
-    //             })
-    //             .catch ((err) => {alert(err.msg)})
-    //         },[]);
+            const[profiledetails, setProfiledetails] = useState([]);
+            useEffect(() =>{
+            const email = token.email;
+                const details = {"email" :email}
+                axios.post("http://localhost:5000/customer/user",details)
+                .then((res) =>{
+                    console.log(res.data.data);
+                    setProfiledetails(res.data.data);
+                })
+                .catch ((err) => {alert(err.msg)})
+            },[]);
             
     
     return (
@@ -29,7 +29,7 @@ const Profile = ({profile}) => {
             <div>
             
             <Card style={{ width: '22rem' }}>
-                <Card.Img variant="top" src="./Img/userimg.png" />
+                {/* <Card.Img variant="top" src="./Img/userimg.png" /> */}
                 <Card.Body>
                     <Card.Title>{profiledetails.firstName}{" "}{profiledetails.lastName}</Card.Title>
                 </Card.Body>

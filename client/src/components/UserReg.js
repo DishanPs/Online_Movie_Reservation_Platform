@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { useState } from "react";
-//import axios from "axios";
+import axios from "axios";
 import swal from 'sweetalert';
 import Row from 'react-bootstrap/Row'
 const bcrypt = require('bcryptjs');
@@ -13,11 +13,10 @@ const UserReg = () => {
     const [email, setEmail] = useState("");
     const [contactno, setContactNo] = useState("");
     const [nic, setNIC] = useState("");
-    const [address, setAddress] = useState("");
-    const [photo, setPhoto] = useState("");
+    const [homecity, setHomeCity] = useState("");
     const [password, setPassword] = useState("");
     const [cpassword, setConfirmPassword] = useState();
-    const [selectedPhoto, setSelectedPhoto] = useState("");
+    
 
 
 
@@ -29,7 +28,7 @@ const UserReg = () => {
             "email": email,
             "contactNo": contactno,
             "NIC": nic,
-            "address": address,
+            "homeCity": homecity,
         }
 
         const newLogin = {
@@ -38,35 +37,37 @@ const UserReg = () => {
             "type": "customer",
             "password": bcrypt.hashSync(password, bcrypt.genSaltSync()),
             
-        }
+        } 
 
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
-    };
-    //     else {
-    //         if (cpassword == password){
+    //};
+        else {
+            if (cpassword == password){
 
-    //         axios
-    //             .post("http://localhost:5000/customer/register", newCustomer)
-    //             .then((data) => console.log(data))
-    //             .catch((err) => alert(err));
+            axios
+                .post("http://localhost:5000/customer/register", newCustomer)
+                .then((data) => 
+                console.log(data),
+                swal("Submitted!", "Successfully Registered", "success"))
+                .catch((err) => alert(err));
 
-    //         axios
-    //             .post("http://localhost:5000/login/add", newLogin)
-    //             .then(() =>
-    //                 swal("Submitted!", "Successfully Registered", "success"))
-    //             .catch((err) =>
-    //                  alert(err));
-    //         } else {
-    //             swal("Error !", "Password Mismatch", "error");
+            axios
+                .post("http://localhost:5000/login/add", newLogin)
+                .then(() =>
+                    swal("Submitted!", "Successfully Registered", "success"))
+                .catch((err) =>
+                     alert(err));
+            } else {
+                swal("Error !", "Password Mismatch", "error");
     
-    //         }
-    //     }
-    //     setvalidated(true);
-    //   };
+            }
+        }
+        setvalidated(true);
+      };
 
     //   const imageChange = (e) => {
     //     if (e.target.files && e.target.files.length > 0) {
@@ -80,38 +81,38 @@ const UserReg = () => {
       
 
     return (
-        <div className='Container'>
-        <div className='wrapper'>
-        <div className='title'><h1 >Create Profile</h1>
-        <div className="loginform">
+        <div className='Containerreg'>
+        <div className='wrapperreg'>
+        <div className='titlereg'><h1 >Create Profile</h1>
+        <div className="loginformreg">
             
         <Form noValidate validated={validated} onSubmit= {checkSubmit}>
         <Row >
-        <Form.Group className="input" controlId="fname">
+        <Form.Group className="inputreg" controlId="fname">
             <Form.Label>First Name</Form.Label>
             <Form.Control
-                 placeholder="First Name" 
+                 placeholder="Enter First Name" 
                  value={fname}
                  onChange={(e) => setFirstName(e.target.value)}
                  required
             />
         </Form.Group>
          
-        <Form.Group className="input" controlId="lname">
+        <Form.Group className="inputreg" controlId="lname">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
-                 placeholder="Last Name" 
+                 placeholder="Enter Last Name" 
                  value={lname}
                  onChange={(e) => setLastName(e.target.value)}
                  required
             />
         </Form.Group></Row>
         <Row>
-        <Form.Group className="input" controlId="email">
+        <Form.Group className="inputreg" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
                  type="email" 
-                 placeholder="abcd@defg.com"
+                 placeholder="Enter a Email"
                  pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" 
                  value={email}
                  onChange={(e) => setEmail(e.target.value)}
@@ -122,7 +123,7 @@ const UserReg = () => {
             </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="input" controlId="contactno">
+        <Form.Group className="inputreg" controlId="contactno">
             <Form.Label>Contact No.</Form.Label>
             <Form.Control
                  placeholder="Enter Contact No."
@@ -136,7 +137,7 @@ const UserReg = () => {
             </Form.Control.Feedback>
         </Form.Group></Row>
         <Row>
-        <Form.Group className="input" controlId="nic">
+        <Form.Group className="inputreg" controlId="nic">
             <Form.Label>NIC</Form.Label>
             <Form.Control
                  placeholder="Enter NIC"
@@ -151,17 +152,17 @@ const UserReg = () => {
         </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="input" controlId="homecity">
+        <Form.Group className="inputreg" controlId="homecity">
             <Form.Label>Home City</Form.Label>
             <Form.Control
-                 placeholder="Home city" 
-                 value={lname}
-                 onChange={(e) => setLastName(e.target.value)}
+                 placeholder="Enter Home city" 
+                 value={homecity}
+                 onChange={(e) => setHomeCity(e.target.value)}
                  required
             />
         </Form.Group></Row>
         <Row>
-        <Form.Group className="input" controlId="password">
+        <Form.Group className="inputreg" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
                  type="password" 
@@ -176,7 +177,7 @@ const UserReg = () => {
             </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="input" controlId="cpassword">
+        <Form.Group className="inputreg" controlId="cpassword">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
                  type="password" 
@@ -186,8 +187,8 @@ const UserReg = () => {
                  required
             />
         </Form.Group></Row>
-        <Row className='mb-3'>
-        <Form.Group className="input" controlId="checkbox">
+        
+        <Form.Group className="inputreg" controlId="checkbox">
             <Form.Check
                  type="checkbox" 
                  label="I Agree to Terms & Conditions" 
@@ -198,7 +199,7 @@ const UserReg = () => {
 
 
 
-        <Button className="butn" variant="success" type="submit">Submit</Button></Row>
+        <Button className="butnreg" variant="success" type="submit">Submit</Button>
         </Form>
         </div>
         </div>
