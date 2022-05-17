@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Col, Row } from "react-bootstrap";
+import OTPModel from "./OTPModel";
 
-const MobilePayment = () => {
+const MobilePayment = (props) => {
+
+const [showModal, setShowModal] = useState(false)
+
   return (
     <div>
       <div className="mobpay1">
@@ -13,7 +17,7 @@ const MobilePayment = () => {
         <br />
         <div className="mobpay2">
           <div className="mobpay3">
-            <Form>
+            <Form {...props}>
               <h1 style={{ color: "black" }}>Mobile Payment</h1>
               <hr />
               <Form.Group className="mb-3" controlId="formBasicAmount">
@@ -24,7 +28,7 @@ const MobilePayment = () => {
                     </Form.Label>
                   </Col>
                   <Col>
-                    <Form.Control type="text" placeholder="1500.00" disabled />
+                    <Form.Control type="text">{props.amount}</Form.Control>
                   </Col>
                 </Row>
               </Form.Group>
@@ -39,6 +43,9 @@ const MobilePayment = () => {
                   pattern="[0-9]{10}"
                   required
                 />
+                <Form.Text className="text-muted">
+                  We'll send OTP to verify number.
+                </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
@@ -52,9 +59,14 @@ const MobilePayment = () => {
                 </Form.Text>
               </Form.Group>
               <br />
-              <Button variant="primary" type="submit">
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={() => setShowModal(true)}
+              >
                 Pay
               </Button>
+              <OTPModel show={showModal} onHide={() => setShowModal(false)} />
             </Form>
           </div>
         </div>
