@@ -11,6 +11,8 @@ import MobilePayment from "./components/MobilePayment";
 import PaymentOption from "./components/PaymentOption";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ResBook from "./components/ResBook";
+import ResCart from "./components/ResCart";
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
           <Route path="/movies" exact element={<MovieCusMovies />} />
           <Route path="/addmovie" exact element={<MovieAddMovies />} />
           <Route path="/adminmovies" exact element={<MovieAdminMovies/>}/>
+          <Route path="/reserve" exact element={<ResBookMovie/>}/>
+          <Route path="/book" exact element={<ResBook/>}/>
+          <Route path="/cart" exact element={<ResCart/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

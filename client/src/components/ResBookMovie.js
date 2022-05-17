@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import Header from './Header'
 import Card from 'react-bootstrap/Card'
 import Footer from './Footer'
@@ -11,34 +11,52 @@ import Tab from 'react-bootstrap/Tab'
 import ResSynopsis from './ResSynopsis'
 import ResBook from './ResBook'
 import ResCart from './ResCart'
+import axios from 'axios'
 
 
 const ResBookMovie = () => {
 
   const [key, setKey] = useState('home');
+  const [Movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const getMovie = () => {
+      axios
+        .get("http://localhost:5000/reservation/id")
+        .then((res) => {
+          setMovies(res.data);
+          console.log(res.data);
+        })
+        .catch((err) => {
+          alert(err.msg);
+        });
+    };
+    getMovie();
+  });
 
   return (
     <div >
-      <Header/>
+      {Movies.map((movie) => 
       <Card className="bg-dark text-white">
         <Card.Img src="../images/a.png" alt="Card image" className='card w-79'/>
         <Card.ImgOverlay>
         <CloseButton/>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <div className='c1'>
-            <Card.Title><h1>Doctor Strange</h1></Card.Title>
+            <Card.Title><h1>{movie.movieName}</h1></Card.Title>
             <Card.Text>
                 <h2>...In The Multiverse Of Madness...</h2>
             </Card.Text>
             <Card.Text>English<br/>2h 10min
             &nbsp;&nbsp;
            
-            <Button className='rounded-circle' variant="secondary" onPress={() => Linking.openURL('https://www.motorola.com')}><FaPlayCircle/></Button>
+            <Button className='rounded-circle' variant="secondary" onClick={() => Linking.openURL('https://www.motorola.com')}><FaPlayCircle/></Button>
             
             <br/>Action | Adventure | Fantasy </Card.Text>
             </div>
         </Card.ImgOverlay>
       </Card>
+      )}
       <div className='t1'>
       
       <Tabs
@@ -58,7 +76,7 @@ const ResBookMovie = () => {
         </Tab>
       </Tabs>
       </div>
-      <Footer/>
+      
     </div>
   )
 }
