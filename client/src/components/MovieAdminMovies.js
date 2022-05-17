@@ -6,119 +6,77 @@ import Col from 'react-bootstrap/Col'
 import {FaEdit} from 'react-icons/fa'
 import {MdDelete} from 'react-icons/md'
 import MovieModalDelete from './MovieModalDelete'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-const MovieAdminMovies = () => {
+const MovieAdminMovies = (props) => {
+    const [modalShow, setModalShow] = React.useState(false);
+    const [Movies, setMovie] = useState([]);
+    const [DeleteMovie, setDeleteMovie] = useState('');
+
+    useEffect(() => {
+        const getMovies = () => {
+          axios
+            .get("http://localhost:5000/movie")
+            .then((res) => {
+              setMovie(res.data);
+              console.log(res.data);
+            })
+            .catch((err) => {
+              alert(err.msg);
+            });
+        };
+        getMovies();
+      },[]);
+
+
 
   return (
     <div>
+        <center>
         <h2>Movies</h2>
         <hr />
-        <Button variant='warning'><b>Add Movie</b></Button>
+        <Link to ="/addmovie">
+            <Button variant='warning'><b>Add Movie</b></Button>
+        </Link>
+        </center>
         <br />
       <div className='movies'>
         <Row xs={1} md={3} className="g-4">
-        {Array.from({ length: 1 }).map((_, idx) => (
+        {/* {Array.from({ length: 1 }).map((_, idx) => ( */}
+        {Movies.map((Movie)=>
         <Col>
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="../images/download.jpg" style={{ height: '10rem' }} />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{ Movie.movieName }</Card.Title>
                 <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                { Movie.director }<br />
+                { Movie.category }{" | "}{ Movie.language }{" | "}{ Movie.year }
                 </Card.Text>
-                <Button variant="dark"><FaEdit /></Button>
-                <Button variant="danger" ><MdDelete /></Button>
+                <Link to = "/addmovie">
+                    <Button variant="dark"><FaEdit /></Button>
+                </Link>
+                <Button variant="danger" onClick={() => {
+                    setModalShow(true);setDeleteMovie(Movie);}} ><MdDelete /></Button>
 
-            </Card.Body>
-            </Card>
-            <br />
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="../images/avengers.jpg" style={{ height: '10rem' }} />
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>
-                <Button variant="dark"><FaEdit /></Button>
-                <Button variant="danger"><MdDelete /></Button>
             </Card.Body>
             </Card>
             <br />
         </Col>
 
-
-        ))}
-
-
-        {Array.from({ length: 1 }).map((_, idx) => (
-        <Col>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="../images/inception.jpg" style={{ height: '10rem' }} />
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>
-                <Button variant="dark"><FaEdit /></Button>
-                <Button variant="danger"><MdDelete /> </Button>
-            </Card.Body>
-            </Card>
-            <br />
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="../images/645154.webp" style={{ height: '10rem' }}/>
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>
-                <Button variant="dark"><FaEdit /></Button>
-                <Button variant="danger"><MdDelete  /></Button>
-            </Card.Body>
-            </Card>
-            <br />
-        </Col>
+        )}
+        {/* ))} */}
 
 
-        ))}
-
-
-        {Array.from({ length: 1 }).map((_, idx) => (
-        <Col>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="../images/batman.jpg" style={{ height: '10rem' }}/>
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>
-                <Button variant="dark"><FaEdit /></Button>
-                <Button variant="danger"><MdDelete /> </Button>
-            </Card.Body>
-            </Card>
-            <br />
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="../images/cadaver.jpg" style={{ height: '10rem' }}/>
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>
-                <Button variant="dark"><FaEdit /></Button>
-                <Button variant="danger"><MdDelete /></Button>
-            </Card.Body>
-            </Card>
-            <br />
-        </Col>
-
-
-        ))}
         </Row>
+
+        <MovieModalDelete
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                DeleteMovie = {DeleteMovie}
+        />
 
       </div>
 

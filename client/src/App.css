@@ -142,37 +142,15 @@ span {
   width: 1px;
 }
 
-
-/* .loginform {
-    height: 750px;
+.movieform {
+    height: 900px;
     width: 700px;
-    display: flex;
-    margin: 0 auto;
-    justify-content:center;
-    align-items:center;
-    border: 2px solid green;
-    margin-top: 70px;
-    background-color:rgba(0, 0, 0, 0.562);
-    color: white;
-    
-    
-}
-.mb-3{
-    flex: 1;
-min-width: 40%;
-margin: 10px 10px 0px 30px;
-padding: 10px;
-}
-
-.Rgframe {
-    height: 950px;
-    width: 900px;
     display: flex;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
-    margin-top: 50px;
+    border: 2px solid rgb(54, 57, 102);
+    margin-top: 30px;
     background-color:rgba(0, 0, 0, 0.562);
     color: white;
 } */
