@@ -21,7 +21,13 @@ app.get("/", (req, res) => {
     res.send("Hello Node!");
 });
 
+const movieApi = require("./src/api/movie.api");
+app.use("/movie", movieApi());
+
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);
 });
+
+
+
