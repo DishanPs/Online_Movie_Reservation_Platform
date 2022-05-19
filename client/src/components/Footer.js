@@ -25,7 +25,7 @@ const Footer = () => {
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={4}>
                             <Box>
-                                <div style={{color:"white",fontWeight:"bold"}}>Research Management</div>
+                                <div style={{color:"white",fontWeight:"bold"}}>Online Movie Reservation</div>
                             </Box>
                             <Box style={{marginTop:"5px"}}>
                                 <Link href="/" color="primary">

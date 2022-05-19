@@ -5,8 +5,12 @@ import { useState } from "react";
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import axios from 'axios'
+import { useParams } from 'react-router-dom';
 
 const MovieAddMovies = ({ det }) => {
+
+    const params = useParams();
+
     const [validated, setvalidated] = useState(false);
     const [mname, setMovieName] = useState(det != null ? det.mname : "");
     const [year, setYear] = useState(det != null ? det.year : "");
@@ -22,6 +26,8 @@ const MovieAddMovies = ({ det }) => {
     const [cast, setCast] = useState(det != null ? det.cast : "");
     const [photo, setPhoto] = useState(det != null ? det.photo : "");
     const [selectedPhoto, setSelectedPhoto] = useState("");
+
+    
 
 
 
@@ -78,6 +84,8 @@ const MovieAddMovies = ({ det }) => {
         setPhoto(e.target.value);
     
       };
+
+      const res = JSON.parse(sessionStorage.getItem("res"))
 
 
 

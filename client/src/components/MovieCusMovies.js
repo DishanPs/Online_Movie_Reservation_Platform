@@ -38,7 +38,7 @@ const MovieCusMovies = () => {
         <hr />
       <div className='movies'>
         <Row xs={1} md={3} className="g-4">
-        {/* {Array.from({ length: 1 }).map((_, idx) => ( */}
+        
         {Movies.map((Movie)=>
         <Col>
             <Card style={{ width: '18rem' }}>
@@ -66,7 +66,7 @@ const MovieCusMovies = () => {
         )}
 
 
-        {/* ))} */}
+        
 
 
         
