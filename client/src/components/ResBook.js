@@ -2,7 +2,7 @@ import {React, useState} from 'react'
 import ResCinema from './ResCinema'
 import ResDateButton from './ResDateButton'
 
-const ResBook = (props) => {
+const ResBook = () => {
   const [cartItems, setCartItems] = useState([]);
   
   
@@ -12,7 +12,7 @@ const ResBook = (props) => {
             
       <ResDateButton/>
       
-      <ResCinema/>
+      <ResCinema cartItems={cartItems} setCartItems={setCartItems}/>
       
     </div>
   )

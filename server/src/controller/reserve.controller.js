@@ -25,7 +25,7 @@ const getAllReservations = async (req, res) => {
 //get Appointments for selected user
 const getReservation = async (req, res) => {
     if (req.body){
-        await Reservation.findOne(req.body)
+        await Reservation.findById(req.body)
         .then((data) => {
             res.status(200).send({ data });
         })

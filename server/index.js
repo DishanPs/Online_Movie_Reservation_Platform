@@ -30,6 +30,11 @@ app.use("/mobilepayment", mobilepayAPI());
 
 const cardpayAPI = require("./src/api/CardPayment.api");
 app.use("/cardpayment", cardpayAPI());
+const theatreApi = require("./src/api/theatre.api");
+app.use("/theatre", theatreApi());
+
+const cartApi = require("./src/api/cart.api");
+app.use("/cart", cartApi());
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);

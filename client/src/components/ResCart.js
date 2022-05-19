@@ -1,9 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table'
+import axios from 'axios'
+import { Link, useParams } from "react-router-dom"
 
 
 const ResCart = () => {
+    const [Theatres, setTheatre] = useState([]);
+    const params = useParams();
+
+    // const handleClick = (props) => {
+    //     setCartItems(props)
+    //     console.log(props)
+    //   };
+
+    // const handleRemove = (id) => {
+    //     const arr = cartItems.filter(() => item.id)
+    // }
+
+    // const handlePrice = () => {
+    //     let ans = 0;
+    //     cartItems.map((props) => (ans += ))
+    // }
+
+    useEffect(() => {
+        const getTheatres = () => {
+          axios
+            .get(`http://localhost:5000/theatre/${params.id}`)
+            .then((res) => {
+                setTheatre(res.data.data);
+                console.log(params.id);
+            })
+            .catch((err) => {
+              alert(err.msg);
+            });
+        };
+        getTheatres();
+      },[]);
+
   return (
     <div>
       <Card className='c3'>
@@ -34,8 +68,8 @@ const ResCart = () => {
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
+                                        <td>{Theatres.type1}</td>
+                                        <td>{Theatres.fullPrice}</td>
                                         <td type='number'>1</td>
                                     </tr>
                                     <tr>
