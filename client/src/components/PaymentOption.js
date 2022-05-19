@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { FaCreditCard, FaMobile} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-import MobilePayment from './MobilePayment';
 
 function ccyFormat(num) {
   return `${num.toFixed(2)}`;
@@ -45,10 +44,9 @@ const PaymentOption = () => {
             <br />
             <br />
             <div className="payopt2">
-              <h1>Order Summery</h1>
-              <hr />
+              <h1>Select Payment Method</h1>
 
-              <Table sx={{ maxWidth: "100%" }} aria-label="spanning table">
+              {/* <Table sx={{ maxWidth: "100%" }} aria-label="spanning table">
                 <TableHead>
                   <TableRow>
                     <TableCell align="center" colSpan={3}>
@@ -82,18 +80,19 @@ const PaymentOption = () => {
                     </TableCell>
                   </TableRow>
                 </TableBody>
-              </Table>
-              <MobilePayment amount={invoiceTotal()}/>
+              </Table> */}
             </div>
           </Col>
           <Col>
             <div className="payopt3">
               <br />
               <div style={{ marginTop: "30%", marginLeft: "25%" }}>
-                <Button style={{ width: "40%" }} variant="success">
-                  <FaCreditCard />
-                  &nbsp;&nbsp;&nbsp;Credit/Debit Card
-                </Button>
+                <Link to="cardpay">
+                  <Button style={{ width: "40%" }} variant="success">
+                    <FaCreditCard />
+                    &nbsp;&nbsp;&nbsp;Credit/Debit Card
+                  </Button>
+                </Link>
                 <br />
                 <br />
                 <Link to="mobilepay">

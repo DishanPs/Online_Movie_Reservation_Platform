@@ -1,8 +1,20 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const mobilepayShema = new Schema({
+const cardpayShema = new Schema({
   amount: {
+    type: String,
+    required: true,
+  },
+  cardno: {
+    type: String,
+    required: true,
+  },
+  expire: {
+    type: String,
+    required: true,
+  },
+  cvc: {
     type: String,
     required: true,
   },
@@ -10,16 +22,8 @@ const mobilepayShema = new Schema({
     type: String,
     required: true,
   },
-  mobile: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
 });
 
-const MobilePayment = mongoose.model("MobilePayment", mobilepayShema);
+const CardPayment = mongoose.model("CardPayment", cardpayShema);
 
-module.exports = MobilePayment;
+module.exports = CardPayment;
