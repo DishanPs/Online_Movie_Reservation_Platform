@@ -321,3 +321,17 @@ width: 100vw;
   background-color: whitesmoke;
   border-radius: 10px;
 }
+
+
+
+
+.profile {
+  height: 500px;
+  Width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid green;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.562);
+}

@@ -13,8 +13,8 @@ const Profile = ({profile}) => {
             const[profiledetails, setProfiledetails] = useState([]);
             useEffect(() =>{
             const email = token.email;
-                const details = {"email" :email}
-                axios.post("http://localhost:5000/customer/user",details)
+                const details = {"email" :token.email}
+                axios.get(`http://localhost:5000/customer/user/${token.email}`)
                 .then((res) =>{
                     console.log(res.data.data);
                     setProfiledetails(res.data.data);
@@ -29,7 +29,7 @@ const Profile = ({profile}) => {
             <div>
             
             <Card style={{ width: '22rem' }}>
-                {/* <Card.Img variant="top" src="./Img/userimg.png" /> */}
+                
                 <Card.Body>
                     <Card.Title>{profiledetails.firstName}{" "}{profiledetails.lastName}</Card.Title>
                 </Card.Body>
@@ -39,7 +39,7 @@ const Profile = ({profile}) => {
                 <Card.Body><FaEnvelope />{" "}{profiledetails.email}</Card.Body>
             </Card>
             <Card>
-                <Card.Body><ImLocation2 />{" "}{profiledetails.address}</Card.Body>
+                <Card.Body><ImLocation2 />{" "}{profiledetails.homeCity}</Card.Body>
             </Card>
             <Card>
                 <Card.Body><BsPersonSquare />{" "}{profiledetails.NIC}</Card.Body>

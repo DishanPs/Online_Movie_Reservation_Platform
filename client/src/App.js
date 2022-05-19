@@ -13,6 +13,7 @@ import MobilePayment from "./components/MobilePayment";
 import PaymentOption from "./components/PaymentOption";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CusProfile from "./components/CusProfile";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path="/Userprofile" exact element={<UserProfile/>}/>
           <Route path="/Userreg" exact element={<UserReg/>}/>
           <Route path="/Userlogin" exact element={<UserLogin/>}/>
+          <Route path="/cusprofile" exact element={<CusProfile/>}/>
+          
         </Routes>
         <Footer/>
       </BrowserRouter>
