@@ -7,6 +7,6 @@ module.exports = function (){
     router.post('/register', CustomerController.registerCustomer);
     router.put('/update/:id', CustomerController.updateCustomer);
     router.delete('/delete/:id', CustomerController.deleteCustomer);
-    //router.get('/', CustomerController.getAllCustomers);
+    
     return router;
 }

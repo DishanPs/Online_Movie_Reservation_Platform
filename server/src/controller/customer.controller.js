@@ -22,15 +22,6 @@ const profileDetails = async (req, res) => {
         }
 }
 
-// const getAllCustomers = async (req, res) => {
-//     await Customer.find()
-//         .then((data) => {
-//             res.status(200).send(data);
-//         })
-//         .catch(error => {
-//             res.send(error);
-//         });
-// }
 
 const updateCustomer = async (req, res) => {
     console.log(req.body)
@@ -59,7 +50,6 @@ const deleteCustomer = async (req, res) => {
 
 module.exports = {
     registerCustomer,
-    //getAllCustomers,
     updateCustomer,
     deleteCustomer,
     profileDetails,
