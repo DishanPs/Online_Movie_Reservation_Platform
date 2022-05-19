@@ -35,5 +35,8 @@ app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);
 });
 
+const customerApi = require("./src/api/customer.api");
+app.use("/customer", customerApi());
 
-
+const loginApi = require("./src/api/login.api");
+app.use("/login", loginApi());
