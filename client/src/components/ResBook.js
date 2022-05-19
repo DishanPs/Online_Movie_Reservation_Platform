@@ -1,17 +1,19 @@
-import {React} from 'react'
+import {React, useState} from 'react'
 import ResCinema from './ResCinema'
 import ResDateButton from './ResDateButton'
 
-const ResBook = () => {
+const ResBook = (props) => {
+  const [cartItems, setCartItems] = useState([]);
+  
+  
 
   return (
     <div>
+            
       <ResDateButton/>
       
       <ResCinema/>
-      jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-      jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-      jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+      
     </div>
   )
 }

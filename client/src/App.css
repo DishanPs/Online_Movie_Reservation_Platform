@@ -262,8 +262,9 @@ width: 100vw;
 .c1{
     background-color: black;
     opacity: 0.6;
-    width:fit-content;
+    width:500px;
     margin-left: 8px;
+    text-align: center;
 }
 
 .t1{
@@ -291,7 +292,7 @@ width: 100vw;
 
 .c3{
     height: fit-content;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-right: 50px;
     margin-top: 145px;
     text-align: left;
@@ -303,7 +304,7 @@ width: 100vw;
 
 .c5{
     width: 50rem;
-    margin-left: 585px;
+    margin-left: 200px;
     margin-top: 1px;
     text-align: center;
 }

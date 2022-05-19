@@ -1,12 +1,31 @@
-import React from 'react'
+import {React, useState} from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
+import {Link} from 'react-router-dom'
 
-const ResCinema = () => {
+const ResCinema = (props) => {
+  const {cartItems, setCartItems} = useState([]);
+  const {countCartItems} = props;
+  
+  const handleClick = (props,countCartItems) => {
+    setCartItems(props,countCartItems)
+    console.log(props,countCartItems)
+  };
+
   return (
     <div>
+
+      <Link to={'/cart'}>
+        Cart{' '}
+        {countCartItems ? (
+          <button className="badge">{countCartItems}</button>
+        ) : (
+          ''
+        )}
+      </Link>{' '}
+
         <Card className='c2'>
             <Card.Body>
                 Skylite
@@ -15,6 +34,7 @@ const ResCinema = () => {
                 {['top'].map((placement) => (
                 <OverlayTrigger
                   key={placement}
+                  //price = {200}
                   placement={placement}
                   overlay={
                     <Tooltip id={`tooltip-${placement}`}>
@@ -22,7 +42,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>ODC-FULL</Button>
+                  <Button variant="outline-dark" item={"odc full"} className='b1' onClick={() => handleClick("320","1")}>ODC-FULL</Button>
                 </OverlayTrigger>
               ))}
 
@@ -36,7 +56,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>ODC-HALF</Button>
+                  <Button variant="outline-dark" className='b1' onClick={() => handleClick("220")}>ODC-HALF</Button>
                 </OverlayTrigger>
               ))}
 
@@ -50,7 +70,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>BOX-FULL</Button>
+                  <Button variant="outline-dark" className='b1' onClick={() => handleClick("820")}>BOX-FULL</Button>
                 </OverlayTrigger>
               ))}
 
@@ -69,7 +89,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>ODC-FULL</Button>
+                  <Button variant="outline-dark" className='b1' onClick={() => handleClick("500")}>ODC-FULL</Button>
                 </OverlayTrigger>
               ))}
 
@@ -83,7 +103,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>ODC-HALF</Button>
+                  <Button variant="outline-dark" className='b1' onClick={() => handleClick("400")}>ODC-HALF</Button>
                 </OverlayTrigger>
               ))}
 
@@ -102,7 +122,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>GOLD CLASS-FULL</Button>
+                  <Button variant="outline-dark" className='b1' onClick={() => handleClick("885")}>GOLD CLASS-FULL</Button>
                 </OverlayTrigger>
               ))}
 
@@ -116,7 +136,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b2'>GOLD CLASS-HALF</Button>
+                  <Button variant="outline-dark" className='b2' onClick={() => handleClick("735")}>GOLD CLASS-HALF</Button>
                 </OverlayTrigger>
               ))}
 
@@ -130,7 +150,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b2'>ODC-FULL</Button>
+                  <Button variant="outline-dark" className='b2' onClick={() => handleClick("785")}>ODC-FULL</Button>
                 </OverlayTrigger>
               ))}
 
@@ -144,7 +164,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b2'>ODC-HALF</Button>
+                  <Button variant="outline-dark" className='b2' onClick={() => handleClick("585")}>ODC-HALF</Button>
                 </OverlayTrigger>
               ))}
 
@@ -158,7 +178,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b2'>BOX-FULL</Button>
+                  <Button variant="outline-dark" className='b2' onClick={() => handleClick("1885")}>BOX-FULL</Button>
                 </OverlayTrigger>
               ))}
                 
@@ -177,7 +197,7 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>ODC-FULL</Button>
+                  <Button variant="outline-dark" className='b1' onClick={() => handleClick("700")}>ODC-FULL</Button>
                 </OverlayTrigger>
               ))}
 
@@ -191,14 +211,15 @@ const ResCinema = () => {
                     </Tooltip>
                   }
                 >
-                  <Button variant="outline-dark" className='b1'>ODC-HALF</Button>
+                  <Button variant="outline-dark" className='b1' onClick={() => handleClick("600")}>ODC-HALF</Button>
                 </OverlayTrigger>
               ))}
 
                 <br/>
-                <hr/>
+                
             </Card.Body>
-        </Card>      
+        </Card>
+        <br/>      
     </div>
   )
 }

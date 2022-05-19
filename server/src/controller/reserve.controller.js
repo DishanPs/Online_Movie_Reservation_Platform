@@ -35,18 +35,6 @@ const getReservation = async (req, res) => {
         }
 }
 
-const getMovie = async (req, res) => {
-    if (req.body){
-        await Reservation.findOne(req.body)
-        .then((data) => {
-            res.status(200).send({ data });
-        })
-        .catch((err) => {
-            res.status(500).send(err);
-        });
-        }
-}
-
 //update Appointments with id
 const updateReservation = async (req, res) => {
     console.log(req.body)
@@ -77,7 +65,6 @@ module.exports = {
     addReservation,
     getAllReservations,
     getReservation,
-    getMovie,
     updateReservation,
     deleteReservation
 }

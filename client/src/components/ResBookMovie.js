@@ -12,51 +12,57 @@ import ResSynopsis from './ResSynopsis'
 import ResBook from './ResBook'
 import ResCart from './ResCart'
 import axios from 'axios'
+import { Link, useParams } from "react-router-dom"
+import ReactPlayer from 'react-player/youtube'
 
 
 const ResBookMovie = () => {
 
   const [key, setKey] = useState('home');
-  const [Movies, setMovies] = useState([]);
+  const [Movies, setMovie] = useState([]);
+  const params = useParams();
+
+
 
   useEffect(() => {
-    const getMovie = () => {
+    const getMovies = () => {
       axios
-        .get("http://localhost:5000/reservation/id")
+        .get(`http://localhost:5000/movie/${params.id}`)
         .then((res) => {
-          setMovies(res.data);
-          console.log(res.data);
+          setMovie(res.data.data);
+          console.log(params.id);
         })
         .catch((err) => {
           alert(err.msg);
         });
     };
-    getMovie();
-  });
+    getMovies();
+  },[]);
 
   return (
     <div >
-      {Movies.map((movie) => 
+      
       <Card className="bg-dark text-white">
         <Card.Img src="../images/a.png" alt="Card image" className='card w-79'/>
         <Card.ImgOverlay>
         <CloseButton/>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <div className='c1'>
-            <Card.Title><h1>{movie.movieName}</h1></Card.Title>
-            <Card.Text>
+            <Card.Title><h1>{Movies.movieName}</h1></Card.Title>
+            {/* <Card.Text>
                 <h2>...In The Multiverse Of Madness...</h2>
-            </Card.Text>
-            <Card.Text>English<br/>2h 10min
-            &nbsp;&nbsp;
-           
-            <Button className='rounded-circle' variant="secondary" onClick={() => Linking.openURL('https://www.motorola.com')}><FaPlayCircle/></Button>
+            </Card.Text> */}
+            <Card.Text>{Movies.language} | {Movies.year} | {Movies.category}</Card.Text>
             
-            <br/>Action | Adventure | Fantasy </Card.Text>
+            <ReactPlayer
+                    url={ Movies.link }
+                    width={"16rem"}
+                    height={"14rem"}
+                /> 
             </div>
         </Card.ImgOverlay>
       </Card>
-      )}
+     
       <div className='t1'>
       
       <Tabs
@@ -71,12 +77,11 @@ const ResBookMovie = () => {
         </Tab>
         
         <Tab eventKey="synopsis" title="Synopsis">
-          {/* <ResSynopsis/> */}
-          <ResCart/>
+          <ResSynopsis/>
+          {/* <ResCart/> */}
         </Tab>
       </Tabs>
       </div>
-      
     </div>
   )
 }

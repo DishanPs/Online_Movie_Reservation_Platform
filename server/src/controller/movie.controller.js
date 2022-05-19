@@ -11,8 +11,9 @@ const addMovie = async (req, res) => {
 }
 
 const getMovie = async (req, res) => {
-    if (req.body){
-        await Movie.findOne(req.body)
+    if (req.params.id){
+        console.log(req.params.id)
+        await Movie.findById(req.params.id)
         .then((data) => {
             res.status(200).send({ data });
         })

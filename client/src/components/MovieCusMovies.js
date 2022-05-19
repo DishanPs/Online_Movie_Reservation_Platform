@@ -9,9 +9,12 @@ import {RiStarSFill} from 'react-icons/ri'
 import ReactPlayer from 'react-player/youtube'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 const MovieCusMovies = () => {
     const [Movies, setMovie] = useState([]);
+    //const [Moviee, setMoviee] = useState([]);
+
     
 
     useEffect(() => {
@@ -26,9 +29,22 @@ const MovieCusMovies = () => {
               alert(err.msg);
             });
         };
-        getMovies();
-      },[]);
 
+        // const getMovie = () => {
+        //   axios
+        //     .get(`http://localhost:5000/movie/${Moviee.id}`)
+        //     .then((res) => {
+        //       setMoviee(res.data);
+        //       console.log(res.data);
+        //     })
+        //     .catch((err) => {
+        //       alert(err.msg);
+        //     });
+        // };
+
+        getMovies();
+       // getMovie();
+      },[]);
 
   return (
     <div>
@@ -49,7 +65,9 @@ const MovieCusMovies = () => {
                 { Movie.director }<br />
                 { Movie.category }{" | "}{ Movie.language }{" | "}{ Movie.year }
                 </Card.Text>
+                <Link to={`/movies/${Movie._id}`}>
                 <Button variant="primary">Book a Ticket</Button>
+                </Link>
                 <Button variant="success">Watch Movie Trailer <FaPlayCircle/> </Button>
                 <ReactPlayer
                     url={ Movie.link }

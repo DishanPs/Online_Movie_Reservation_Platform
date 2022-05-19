@@ -29,6 +29,7 @@ function App() {
           <Route path="/reserve" exact element={<ResBookMovie/>}/>
           <Route path="/book" exact element={<ResBook/>}/>
           <Route path="/cart" exact element={<ResCart/>}/>
+          <Route path="/movies/:id" exact element={<ResBookMovie/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
