@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import UserReg from './components/UserReg';
 import UserLogin from './components/UserLogin';
 import UserProfile from './components/UserProfile';
+import ResBookMovie from "./components/ResBookMovie";
 import MovieCusMovies from "./components/MovieCusMovies";
 import MovieAddMovies from "./components/MovieAddMovies";
 import MovieAdminMovies from "./components/MovieAdminMovies";
@@ -15,6 +16,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CusProfile from "./components/CusProfile";
 import Ccard from "./components/Ccard";
+import ResBook from "./components/ResBook";
+import ResCart from "./components/ResCart";
 
 function App() {
   return (
@@ -34,6 +37,10 @@ function App() {
           <Route path="/cusprofile" exact element={<CusProfile/>}/>
           <Route path="/ccard" exact element={<Ccard/>}/>
           
+          <Route path="/reserve" exact element={<ResBookMovie/>}/>
+          <Route path="/book" exact element={<ResBook/>}/>
+          <Route path="/cart" exact element={<ResCart/>}/>
+          <Route path="/movies/:id" exact element={<ResBookMovie/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>

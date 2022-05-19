@@ -19,7 +19,7 @@ const CarouselX = () => {
         <Carousel.Item>
             <img
             className="d-block w-100"
-            src="../images/645154.webp"
+            src="../images/645154.jpg"
             alt="Second slide"
             />
 

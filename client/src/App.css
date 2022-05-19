@@ -335,3 +335,52 @@ width: 100vw;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.562);
 }
+.c1{
+    background-color: black;
+    opacity: 0.6;
+    width:500px;
+    margin-left: 8px;
+    text-align: center;
+}
+
+.t1{
+    background-color: #d9d9d9;
+}
+
+.t2{
+    margin-left: 500px;
+}
+
+.c2{
+    height: fit-content;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 100px;
+    text-align: left;
+}
+.b1{
+    margin-left: 180px;
+}
+
+.b2{
+    margin-left: 127px;
+}
+
+.c3{
+    height: fit-content;
+    margin-left: 30px;
+    margin-right: 50px;
+    margin-top: 145px;
+    text-align: left;
+}
+
+.c4{
+    width: 18rem;
+}
+
+.c5{
+    width: 50rem;
+    margin-left: 200px;
+    margin-top: 1px;
+    text-align: center;
+}

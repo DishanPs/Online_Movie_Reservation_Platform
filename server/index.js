@@ -19,6 +19,9 @@ app.get("/", (req, res) => {
     res.send("Hello Node!");
 });
 
+const reservationApi = require("./src/api/reserve.api");
+app.use("/reservation", reservationApi());
+
 const movieApi = require("./src/api/movie.api");
 app.use("/movie", movieApi());
 
