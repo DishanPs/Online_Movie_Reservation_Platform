@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import { Col, Row } from "react-bootstrap";
 import OTPModel from "./OTPModel";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const MobilePayment = () => {
   const [validated, setValidated] = useState(false);
@@ -15,7 +14,6 @@ const MobilePayment = () => {
   const [email, setEmail] = useState();
   const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     const newPayment = {
@@ -35,7 +33,6 @@ const MobilePayment = () => {
         .then(() => alert("Payment Successfull"))
         .catch((err) => alert(err));
       
-      navigate("/paysuccess")
     }
     setValidated(true);
   };
@@ -111,7 +108,7 @@ const MobilePayment = () => {
             >
               Pay
             </Button>
-            {/* <OTPModel show={showModal} onHide={() => setShowModal(false)} />; */}
+            <OTPModel show={showModal} onHide={() => setShowModal(false)} />;
           </Form>
         </div>
       </div>
