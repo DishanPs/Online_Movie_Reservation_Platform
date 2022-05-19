@@ -27,6 +27,11 @@ app.use("/reservation", reservationApi());
 const movieApi = require("./src/api/movie.api");
 app.use("/movie", movieApi());
 
+const theatreApi = require("./src/api/theatre.api");
+app.use("/theatre", theatreApi());
+
+const cartApi = require("./src/api/cart.api");
+app.use("/cart", cartApi());
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);

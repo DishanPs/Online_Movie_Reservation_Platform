@@ -30,6 +30,7 @@ function App() {
           <Route path="/book" exact element={<ResBook/>}/>
           <Route path="/cart" exact element={<ResCart/>}/>
           <Route path="/movies/:id" exact element={<ResBookMovie/>} />
+          <Route path="/theatres/:id" exact element={<ResCart/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
