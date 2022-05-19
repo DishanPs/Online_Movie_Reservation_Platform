@@ -10,7 +10,7 @@ const ResCinema = (props) => {
   const {countCartItems} = props;
   
   const handleClick = (props,countCartItems) => {
-    setCartItems(props,countCartItems)
+    
     console.log(props,countCartItems)
   };
 
