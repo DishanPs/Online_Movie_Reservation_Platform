@@ -10,4 +10,9 @@ const connectDB = async () => {
 }
 
 
-module.exports = connectDB;
+module.exports = {
+  connectDB,
+  serviceID: "VA6f9ece8f27aa826dad1f516c70fb2d32",
+  accountSID: "AC3cb1cf2764f0c7c8ca7aaf489fa43845",
+  authToken: "6053d145285a202a9b79023e48407760",
+};
