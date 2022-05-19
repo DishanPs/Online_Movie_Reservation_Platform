@@ -9,11 +9,21 @@ import MovieModalDelete from './MovieModalDelete'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const MovieAdminMovies = (props) => {
     const [modalShow, setModalShow] = React.useState(false);
     const [Movies, setMovie] = useState([]);
     const [DeleteMovie, setDeleteMovie] = useState('');
+
+    const navigate = useNavigate();
+
+    const onEdit = (res) => { 
+      sessionStorage.setMovie("res", JSON.stringify(res)) 
+      navigate('/addmovie') 
+    }
+
+
 
     useEffect(() => {
         const getMovies = () => {
@@ -30,7 +40,7 @@ const MovieAdminMovies = (props) => {
         getMovies();
       },[]);
 
-
+      
 
   return (
     <div>
@@ -44,7 +54,7 @@ const MovieAdminMovies = (props) => {
         <br />
       <div className='movies'>
         <Row xs={1} md={3} className="g-4">
-        {/* {Array.from({ length: 1 }).map((_, idx) => ( */}
+       
         {Movies.map((Movie)=>
         <Col>
             <Card style={{ width: '18rem' }}>
@@ -55,9 +65,9 @@ const MovieAdminMovies = (props) => {
                 { Movie.director }<br />
                 { Movie.category }{" | "}{ Movie.language }{" | "}{ Movie.year }
                 </Card.Text>
-                <Link to = "/addmovie">
-                    <Button variant="dark"><FaEdit /></Button>
-                </Link>
+                
+                <Button variant="dark" onClick={onEdit}><FaEdit /></Button>
+                
                 <Button variant="danger" onClick={() => {
                     setModalShow(true);setDeleteMovie(Movie);}} ><MdDelete /></Button>
 
@@ -67,7 +77,7 @@ const MovieAdminMovies = (props) => {
         </Col>
 
         )}
-        {/* ))} */}
+        
 
 
         </Row>
