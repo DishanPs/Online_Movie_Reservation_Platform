@@ -14,6 +14,7 @@ import PaymentOption from "./components/PaymentOption";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CusProfile from "./components/CusProfile";
+import Ccard from "./components/Ccard";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/Userreg" exact element={<UserReg/>}/>
           <Route path="/Userlogin" exact element={<UserLogin/>}/>
           <Route path="/cusprofile" exact element={<CusProfile/>}/>
+          <Route path="/ccard" exact element={<Ccard/>}/>
           
         </Routes>
         <Footer/>
