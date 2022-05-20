@@ -43,7 +43,7 @@ const ResBookMovie = () => {
     <div >
       
       <Card className="bg-dark text-white">
-        <Card.Img src="../images/a.png" alt="Card image" className='card w-79'/>
+        <Card.Img src="../images/download.jpg" alt="Card image" className='card w-79'/>
         <Card.ImgOverlay>
         <CloseButton/>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
