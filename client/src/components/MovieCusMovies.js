@@ -58,11 +58,11 @@ const MovieCusMovies = () => {
         {Movies.map((Movie)=>
         <Col>
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="../images/download.jpg" style={{ height: '10rem' }}/>
+            <Card.Img variant="top" src="../images/avengers.jpg" style={{ height: '10rem' }}/>
             <Card.Body>
                 <Card.Title>{ Movie.movieName }<Badge bg="warning"><RiStarSFill />{ Movie.rating }</Badge> </Card.Title>
                 <Card.Text>
-                { Movie.director }<br />
+                Directed By :-   { Movie.director }<br />
                 { Movie.category }{" | "}{ Movie.language }{" | "}{ Movie.year }
                 </Card.Text>
                 <Link to={`/movies/${Movie._id}`}>
