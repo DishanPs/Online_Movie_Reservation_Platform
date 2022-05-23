@@ -44,10 +44,9 @@ const PaymentOption = () => {
             <br />
             <br />
             <div className="payopt2">
-              <h1>Order Summery</h1>
-              <hr />
+              <h1>Select Payment Method</h1>
 
-              <Table sx={{ maxWidth: "100%" }} aria-label="spanning table">
+              {/* <Table sx={{ maxWidth: "100%" }} aria-label="spanning table">
                 <TableHead>
                   <TableRow>
                     <TableCell align="center" colSpan={3}>
@@ -81,23 +80,29 @@ const PaymentOption = () => {
                     </TableCell>
                   </TableRow>
                 </TableBody>
-              </Table>
+              </Table> */}
             </div>
           </Col>
           <Col>
             <div className="payopt3">
               <br />
               <div style={{ marginTop: "30%", marginLeft: "25%" }}>
-                <Button style={{ width: "40%" }} variant="success">
-                  <FaCreditCard />
-                  &nbsp;&nbsp;&nbsp;Credit/Debit Card
-                </Button>
+                <Link to="cardpay">
+                  <Button style={{ width: "40%" }} variant="success">
+                    <FaCreditCard />
+                    &nbsp;&nbsp;&nbsp;Credit/Debit Card
+                  </Button>
+                </Link>
                 <br />
                 <br />
                 <Link to="mobilepay">
-                  <Button style={{ width: "40%" }} variant="success">
+                  <Button
+                    style={{ width: "40%" }}
+                    variant="success"
+                    amount={invoiceTotal}
+                  >
                     <FaMobile />
-                    &nbsp;&nbsp;&nbsp;Mobile Number
+                    &nbsp;&nbsp;&nbsp;Pay via Mobile Bill
                   </Button>
                 </Link>
               </div>

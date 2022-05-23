@@ -142,7 +142,6 @@ span {
   width: 1px;
 }
 
-
 .movieform {
     height: 900px;
     width: 700px;
@@ -154,19 +153,8 @@ span {
     margin-top: 30px;
     background-color:rgba(0, 0, 0, 0.562);
     color: white;
-}
-.loginform {
-  height: 550px;
-  width: 500px;
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid green;
-  margin-top: 50px;
-  background-color: rgba(0, 0, 0, 0.562);
-  color: white;
-}
+} */
+
 
 .profile {
   height: 800px;
@@ -259,6 +247,94 @@ width: 100vw;
     margin-left: 150px;
 }
 
+.Containerreg{
+    width: 100vw;
+  height: 150vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("") center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperreg{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height:65%;
+    width: 50%;
+  padding: 20px;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.titlereg{
+    font-size: 24px;
+  font-weight: 300;
+}
+.loginformreg{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputreg{
+    flex: 1;
+  min-width: 40%;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.butnreg{
+    width: 80%;
+    border: none;
+    padding: 5px 5px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+
+.ContainerL{
+    width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("") center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperl{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height:65%;
+    width: 30%;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+
+
+
+.profile {
+  height: 500px;
+  Width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid green;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.562);
+}
 .c1{
     background-color: black;
     opacity: 0.6;
